@@ -1,0 +1,14 @@
+---
+- name: Install Github runner
+  # hosts: all
+  # remote_user: packer
+  # become: true
+
+  # vars_files:
+  #   - variables.yml
+  # roles:
+  #   - role: "compscidr.github_runner.github_runner"
+  #     vars:
+  #       github_runner_name: "lafayetteduarte-descomplicando-terraform-2024"
+  #       github_runner_install_docker: true
+  #       github_runner_repo: 

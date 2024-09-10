@@ -1,0 +1,10 @@
+---
+collections:
+  - name: compscidr.github_runner
+    version: 0.0.11
+roles:
+  - name: packages
+    src: git@github.com:descomplicando-terraform/lafayetteduarte-iac-role-packages.git
+    version: "v1.0.0"
+    scm: git
+  
