@@ -1,14 +1,28 @@
 ---
 - name: Install Github runner
-  # hosts: all
-  # remote_user: packer
-  # become: true
+  hosts: all
+  remote_user: packer
+  become: true
+
 
   # vars_files:
   #   - variables.yml
-  # roles:
-  #   - role: "compscidr.github_runner.github_runner"
-  #     vars:
-  #       github_runner_name: "lafayetteduarte-descomplicando-terraform-2024"
-  #       github_runner_install_docker: true
-  #       github_runner_repo: 
+  roles:
+    - role: packages
+      vars:
+        packages:
+          apt_repos:
+            - name: Hashicorp
+              apt_key_url: https://apt.releases.hashicorp.com/gpg
+              repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_facts['lsb']['codename']  }} main"
+          apt_packages:
+            - python3
+            - python3-pip
+            - packer
+            - terraform
+          pinned_apt_packages:
+            - terraform
+          pip_packages:
+            - netaddr
+          deb_packages:
+            - "http://archive.ubuntu.com/ubuntu/pool/universe/c/cowsay/cowsay_3.03+dfsg2-8_all.deb"

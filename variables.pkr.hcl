@@ -1,6 +1,6 @@
 variable "template_Path" {
   type = string
-  default = env("IMAGE_PATH") != "" ? env("IMAGE_PATH") : "../images"
+  default = env("BASE_IMAGE_PATH") != "" ? env("BASE_IMAGE_PATH") : "../images"
 }
 
 variable "baseimage_name"{
@@ -28,4 +28,10 @@ variable "user" {
   type        = string
   description = "Usuário default"
   default     = "packer"
+}
+
+variable "template_name" {
+  type        = string
+  description = "nome do template"
+  default     = "gh-runner"
 }
